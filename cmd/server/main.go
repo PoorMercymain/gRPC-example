@@ -18,9 +18,9 @@ func (G GRPCServer) GetMessage(ctx context.Context, request *api.MessageRequest)
 	var messageBuffer string
 
 	for i := 1; i < int(request.MessageLinesAmount)+1; i++ {
-		messageBuffer = fmt.Sprintf("Строка номер %d\n", i)
-		resultMessage += messageBuffer
-		fmt.Println(messageBuffer, "\rдобавлена для ответа клиенту")
+		messageBuffer = fmt.Sprintf("Строка номер %d", i)
+		resultMessage += messageBuffer + "\n"
+		fmt.Println(messageBuffer, "добавлена для ответа клиенту")
 	}
 
 	return &api.MessageResponse{GeneratedMessage: resultMessage}, nil

@@ -19,5 +19,5 @@ func main() {
 		fmt.Println(err)
 	}
 
-	fmt.Println(res.GeneratedMessage, "\rполучены от сервера")
+	fmt.Println(fmt.Sprintf("Получено от сервера:\n%s", res.GeneratedMessage))
 }
