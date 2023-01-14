@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "./api";
+
+service Message {
+  rpc GetMessage(MessageRequest) returns (MessageResponse) {}
+}
+
+message MessageRequest {
+  int32 messageLinesAmount = 1;
+}
+
+message MessageResponse {
+  string generatedMessage = 1;
+}
