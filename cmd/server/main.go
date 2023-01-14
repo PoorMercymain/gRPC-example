@@ -15,9 +15,12 @@ type GRPCServer struct {
 
 func (G GRPCServer) GetMessage(ctx context.Context, request *api.MessageRequest) (*api.MessageResponse, error) {
 	var resultMessage string
+	var messageBuffer string
 
 	for i := 1; i < int(request.MessageLinesAmount)+1; i++ {
-		resultMessage += fmt.Sprintf("Строка номер %d\n", i)
+		messageBuffer = fmt.Sprintf("Строка номер %d\n", i)
+		resultMessage += messageBuffer
+		fmt.Println(messageBuffer, "\rдобавлена для ответа клиенту")
 	}
 
 	return &api.MessageResponse{GeneratedMessage: resultMessage}, nil
@@ -33,10 +36,12 @@ func main() {
 	srv := &GRPCServer{}
 	api.RegisterMessageServer(s, srv)
 
-	l, err := net.Listen("tcp", "localhost:8080")
+	l, err := net.Listen("tcp", ":8080")
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	fmt.Println("Сервер запущен")
 
 	if err := s.Serve(l); err != nil {
 		log.Fatal(err)

@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	conn, err := grpc.Dial("localhost:8080", grpc.WithInsecure())
+	conn, err := grpc.Dial(":8080", grpc.WithInsecure())
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -19,5 +19,5 @@ func main() {
 		fmt.Println(err)
 	}
 
-	fmt.Println(res.GeneratedMessage)
+	fmt.Println(res.GeneratedMessage, "\rполучены от сервера")
 }
