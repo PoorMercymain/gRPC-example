@@ -1,5 +1,5 @@
 # gRPC-example
-https://github.com/protocolbuffers/protobuf/releases/tag/v21.12 - protoc, созаем по своему GOPATH папки bin и src, в bin перекидываем protoc.exe из папки bin скачанного архива, в src - из include
+https://github.com/protocolbuffers/protobuf/releases/tag/v21.12 - protoc, создаем по своему GOPATH папки bin и src, в bin перекидываем protoc.exe из папки bin скачанного архива, в src - из include
 добавляем в PATH свой GOPATH\bin\
 после этого:
 
